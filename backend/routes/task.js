@@ -11,6 +11,26 @@ router.post('/createTask' async (req,res)=>{
 })
 
 
+router.get('/createTask' async (req,res)=>{
+    const task= {name,description,urgency};
+    const Task=
+        await Task.save();
+})
+
+
+
+router.put('/createTask' async (req,res)=>{
+    const task= {name,description,urgency};
+    const Task=
+        await Task.save();
+})
+
+router.delete('/createTask' async (req,res)=>{
+    const task= {name,description,urgency};
+    const Task=
+        await Task.save();
+})
+
 
 
 module.exports=router;
