@@ -15,8 +15,9 @@ mongoose
 .then(()=>console.log("Mongodb running"))
 .catch((err)=>console.log("Mongodb error is:",err))
 
-app.listen(PORT=>{
-    console.log(`Server running on port ${PORT}`)
+
+app.listen(PORT,()=>{
+    console.log(`Server running on port ${PORT}`);
 })
 
 
