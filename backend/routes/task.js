@@ -26,11 +26,25 @@ router.post('/', async (req,res)=>{
 
 router.get('/getTask', async (req,res)=>{
     try{
-        
+        const tasks=await Task.find();
+        res.status(200).json(tasks);
     }
     catch(error){
         res.status(500).json({message:"Server error"});
     }
+})
+
+
+
+router.delete('/deleteTask/:id',async(req,res)=>{
+    try {
+        const todo=await Task.findByIdAndDelete(req.params.id);
+        if(!todo)return res.status(404).json({error:"Task not found"})
+            res.status(200).json({message:"Task deleted successfully"});
+    } catch (error) {
+        res.status(500).json({message:"Server error"});
+    }
+    
 })
 
 
