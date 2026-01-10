@@ -4,32 +4,38 @@ const Task=require("../models/Tasks");
 
 
 
-router.post('/createTask' async (req,res)=>{
-    const task= {name,description,urgency};
-    const Task=
-        await Task.save();
+router.post('/', async (req,res)=>{
+    try {
+        const {title, description,urgency}=req.body;
+
+        const task=new Task({
+            title,
+            description,
+            urgency
+        });
+
+        await task.save();
+
+        res.status(201).json({message:"Task created successfully"});
+    } catch (error) {
+        res.status(500).json("Server error");
+        console.log("The error is:",error);
+    }
 })
 
 
-router.get('/createTask' async (req,res)=>{
-    const task= {name,description,urgency};
-    const Task=
-        await Task.save();
+router.get('/getTask', async (req,res)=>{
+    try{
+        
+    }
+    catch(error){
+        res.status(500).json({message:"Server error"});
+    }
 })
 
 
 
-router.put('/createTask' async (req,res)=>{
-    const task= {name,description,urgency};
-    const Task=
-        await Task.save();
-})
 
-router.delete('/createTask' async (req,res)=>{
-    const task= {name,description,urgency};
-    const Task=
-        await Task.save();
-})
 
 
 
